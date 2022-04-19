@@ -3,7 +3,6 @@ import React from 'react'
 import Card from './Card'
 
 export default props => {
-    const { max, min} = props
     return (
         <Card title="Intervalode Números" red>
             <div className='Intervalo'>
@@ -11,16 +10,14 @@ export default props => {
                     <strong>Mínimo: </strong>
                     <input 
                         type="number" 
-                        value={min} 
-                        onChange={e => props.onMinChanged(+e.target.value)}
+                        value={1} 
                     />
                 </span>
                 <span>
                     <strong>Maximo: </strong>
                     <input 
                         type="number" 
-                        value={max} 
-                        onChange={e => props.onMaxChanged(+e.target.value)}
+                        value={10} 
                     />
                 </span>
             </div>
