@@ -1,16 +1,27 @@
-import React from 'react'
-import Card from './Card'
+import React from "react";
+import { connect } from "react-redux";
 
-export default props => {
-   
-    return (
-        <Card title="Media" green>
-            <div>
-                <span>
-                    <span>Resultado: </span>
-                    <strong>{2}</strong>
-                </span>
-            </div>
-        </Card>
-    )
+import Card from "./Card";
+
+function Media(props) {
+  const { min, max } = props;
+  return (
+    <Card title="Media" green>
+      <div>
+        <span>
+          <span>Resultado: </span>
+          <strong>{(max + min) / 2}</strong>
+        </span>
+      </div>
+    </Card>
+  );
 }
+
+function mapStateToProps(state) {
+  return {
+    min: state.numeros.min,
+    max: state.numeros.max,
+  };
+}
+
+export default connect(mapStateToProps)(Media);
